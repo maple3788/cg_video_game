@@ -1,0 +1,7 @@
+numpy>=1.26
+scipy>=1.11
+opencv-python-headless>=4.8
+pillow>=10.0
+skia-python>=87.5
+imageio-ffmpeg>=0.4.9
+fonttools>=4.40

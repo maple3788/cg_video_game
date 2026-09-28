@@ -1,0 +1,12 @@
+# render outputs
+out/
+*.mp4
+*.wav
+
+# fonts are downloaded by tools/fetch_fonts.py (SIL OFL, large files)
+assets/fonts/*.ttf
+assets/fonts/*.ttc
+assets/fonts/*.otf
+
+__pycache__/
+*.pyc
