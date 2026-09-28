@@ -113,7 +113,7 @@ class Alignment:
                 y = r.u(40, 380)
                 c.drawOval(skia.Rect.MakeXYWH(x - 260, y - 70, 520, 140), paint((0.18, 0.12, 0.24), 0.55 * storm,
                                                                                 blur=30))
-        close = smooth(inv(12.6, 14.2, t))
+        close = smooth(inv(12.7, 13.5, t))
         if close < 1:
             self.part_feedback(c, t, 1 - close)
         if close > 0:

@@ -59,8 +59,9 @@ def main():
     ap.add_argument('--stills', default=None, help='comma separated seconds')
     ap.add_argument('--stills-dir', default='out/stills')
     ap.add_argument('--workers', type=int, default=max(1, os.cpu_count() or 1))
-    ap.add_argument('--crf', type=int, default=18)
-    ap.add_argument('--preset', default='medium')
+    ap.add_argument('--crf', type=int, default=22)
+    ap.add_argument('--preset', default='slow')
+    ap.add_argument('--tune', default='film')
     args = ap.parse_args()
 
     _init(args.scale)
@@ -93,7 +94,7 @@ def main():
     vid_path = outp if not args.audio else outp.with_suffix('.video.mp4')
     cmd = [_ffmpeg(), '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{w}x{h}',
            '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-preset', args.preset, '-crf', str(args.crf),
-           '-pix_fmt', 'yuv420p', '-tune', 'grain', '-movflags', '+faststart', str(vid_path)]
+           '-pix_fmt', 'yuv420p', '-tune', args.tune, '-movflags', '+faststart', str(vid_path)]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     t0 = time.time()
     n = i1 - i0

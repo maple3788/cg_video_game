@@ -110,9 +110,9 @@ class Epilogue:
             img = post.look_gris(img, idx, bloom_amt=0.4, paper_amt=0.8, vig=0.32, sat=1.05, thresh=0.78)
             img = fade_black(img, seg(t, 0.0, 1.6) * (1 - seg(t, 11.2, 12.6)))
             fr.from_float(img)
-            ui.subtitle(c, t, 1.6, 5.6, '从沉默，到言语。', 'From silence, to speech.', style='float', y=975)
+            ui.subtitle(c, t, 1.6, 5.6, '从沉默，到言语。', 'From silence, to speech.', style='float', y=190, size=44)
             ui.subtitle(c, t, 6.0, 10.8, '而这个故事，还远远没有结束。', 'And this story is far from over.', style='float',
-                        y=975)
+                        y=190, size=44)
         else:
             fr.clear((0, 0, 0))
             img = fr.to_float()

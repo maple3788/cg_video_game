@@ -388,6 +388,8 @@ class Attention:
                 ((1, 0.9, 0.74), 0.4), ((1, 0.9, 0.75), 0.0)])))
             c.drawCircle(sx, sy, 215, paint((1.0, 0.93, 0.8), 0.9))
             hills.draw(c, 0, 0)
+            c.drawRect(skia.Rect.MakeXYWH(0, 150, W, 430), paint((1, 1, 1), shader=linear(0, 150, 0, 580, [
+                ((0.3, 0.14, 0.34), 0.0), ((0.3, 0.14, 0.34), 0.28), ((0.3, 0.14, 0.34), 0.0)])))
             self.draw_tokens_arcs(c, t, True)
             draw_petals(c, t, 12.0, cx, cy, R * 0.8, n=160)
             ch.Hero(120, col=(0.16, 0.08, 0.2)).draw(

@@ -9,6 +9,10 @@ import numpy as np
 from .core import W, H, rs, noise_tex, smooth
 
 LUMA = np.array([0.299, 0.587, 0.114], np.float32)
+import os as _os
+GRAIN_SCALE = float(_os.environ.get('CG_GRAIN_SCALE', 0.6))   # global film-grain strength
+GRAIN_SIGMA = float(_os.environ.get('CG_GRAIN_SIGMA', 2.2))   # grain clump size (full-res px), 16mm-like
+GRAIN_HOLD = int(_os.environ.get('CG_GRAIN_HOLD', 2))         # hold each grain pattern N frames (12 fps grain)
 
 
 class Post:
@@ -35,7 +39,7 @@ class Post:
         self.grain_bank = []
         for _ in range(6):
             g = rng.standard_normal((h, w)).astype(np.float32)
-            g = cv2.GaussianBlur(g, (0, 0), 0.6 * max(s, 0.5))
+            g = cv2.GaussianBlur(g, (0, 0), GRAIN_SIGMA * max(s, 0.5))
             g /= g.std() + 1e-6
             self.grain_bank.append(g)
         self.paper = self._build_paper(rng)
@@ -177,8 +181,10 @@ def vignette(img, strength=0.5, inner=0.35, outer=1.25):
 
 
 def grain(img, amount=0.04, frame=0, mid_weight=True):
+    amount *= GRAIN_SCALE
     if amount <= 0:
         return img
+    frame = frame // max(1, GRAIN_HOLD)
     P = Post.get()
     g = P.grain_bank[frame % len(P.grain_bank)]
     # random offset so the bank does not visibly repeat
