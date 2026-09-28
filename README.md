@@ -14,6 +14,16 @@
 
 输出规格：1920×1080，24 fps，H.264 + AAC 立体声。
 
+| | |
+|---|---|
+| ![序章](docs/stills/00_prologue.jpg) | ![标题](docs/stills/01_title.jpg) |
+| ![ELIZA](docs/stills/02_eliza.jpg) | ![反向传播](docs/stills/03_backprop.jpg) |
+| ![遗忘之蛛](docs/stills/04_spider.jpg) | ![word2vec](docs/stills/05_word2vec.jpg) |
+| ![自注意力](docs/stills/06_attention_dark.jpg) | ![色彩绽放](docs/stills/07_attention_bloom.jpg) |
+| ![Transformer 之塔](docs/stills/08_tower.jpg) | ![TRANSFORMER](docs/stills/09_transformer.jpg) |
+| ![规模定律](docs/stills/10_scaling.jpg) | ![对齐](docs/stills/11_chatgpt.jpg) |
+| ![RAG](docs/stills/12_rag.jpg) | ![终章](docs/stills/13_epilogue.jpg) |
+
 ---
 
 ## 分镜 / 章节
